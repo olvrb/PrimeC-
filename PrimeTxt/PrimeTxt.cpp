@@ -24,10 +24,10 @@ void main()
 			cout << "You pressed g: Printed " << printedNumbers << " prime numbers" << endl;
 		}
 		i++;
-		bool isPrime = true; // Move initialization to here
-		for (long j = 3; j < i; j += 2) // you actually only need to check up to sqrt(i)
+		bool isPrime = true; // because i like doing things the wrong way
+		for (long j = 3; j < i; j += 2) // only check if prime for odd numbers
 		{
-			if (i % j == 0) // you don't need the first condition
+			if (i % j == 0) 
 			{
 				isPrime = false;
 				break;
@@ -36,12 +36,12 @@ void main()
 		if (isPrime)
 		{
 			printedNumbers++;
-			myfile << i << endl;
+			myfile << i << endl; //write i to myfile if it's prime
 		}
 
 		if (GetKeyState('S') & 0x80)
 		{
-			break;
+			break; //break loop if s key is pressed.
 		}
 	}
 	printf("Stopped script because the S key was pressed.\n");
@@ -51,7 +51,7 @@ void main()
 	{
 		if (GetKeyState('E') & 0x80)
 		{
-			exit(0);														//TODO fix repeat issue
+			exit(0);														//exit with code 0 if E key is pressed.
 		}
 
 	}
