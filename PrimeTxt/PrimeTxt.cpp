@@ -44,7 +44,7 @@ void main()
 			break; //break loop if s key is pressed.
 		}
 	}
-	printf("Stopped script because the S key was pressed.\n");
+	cout << "Stopped script because the S key was pressed." << endl;
 	cout << "Printed ~" << (printedNumbers - 4) << " numbers" << endl;
 	cout << "Press e to exit." << endl;
 	while (true)
