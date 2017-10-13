@@ -6,6 +6,7 @@
 #include <string>
 #include  <windows.h>
 #include <io.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -16,11 +17,14 @@ void main()
 	myfile.open("PrimeNumbers.txt");
 	int i = 2;
 	int printedNumbers = 1;
+	start:
+
 	printf("Writing prime numbers...\n");
 	while (true)
 	{
 		if (GetKeyState('G') & 0x80)
 		{
+			system("cls");
 			cout << "You pressed g: Printed " << printedNumbers << " prime numbers" << endl;
 		}
 		i++;
@@ -46,12 +50,17 @@ void main()
 	}
 	cout << "Stopped script because the S key was pressed." << endl;
 	cout << "Printed ~" << (printedNumbers - 4) << " numbers" << endl;
-	cout << "Press e to exit." << endl;
+	cout << "Press e to exit or Q to resume." << endl;
 	while (true)
 	{
 		if (GetKeyState('E') & 0x80)
 		{
 			exit(0);														//exit with code 0 if E key is pressed.
+		}
+		else if (GetKeyState('Q') & 0x80)
+		{
+			Sleep(500);
+			goto start;
 		}
 
 	}
